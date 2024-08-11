@@ -238,14 +238,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="ERPSolGlobalViewLib.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ERPSolTemplateView.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="ADF Faces Databinding Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -297,9 +289,26 @@
             <value n="id" v="BC4J Oracle Domains"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="ERPSolGlobalViewLib.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ERPSolTemplateView.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <hash n="internalDefinitions">
          <list n="libraryDefinitions">
+            <hash>
+               <list n="classPath">
+                  <url path="../ERPSolWOMLib/ERPSolTemplateView.jar" jar-entry=""/>
+                  <url path="../../ERPSolutionSupplyChainManagement/ERPSolSCMLib/ERPSolTemplateView.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="ADF Library"/>
+               <value n="id" v="ADF Library"/>
+            </hash>
             <hash>
                <list n="classPath">
                   <url path="../ERPSolWOMLib/ERPSolGlobalViewLib.jar" jar-entry=""/>
@@ -317,15 +326,6 @@
                <value n="description" v="ERPSolTemplateView.jar"/>
                <value n="id" v="ERPSolTemplateView.jar"/>
                <value n="locked" v="true"/>
-            </hash>
-            <hash>
-               <list n="classPath">
-                  <url path="../ERPSolWOMLib/ERPSolTemplateView.jar" jar-entry=""/>
-                  <url path="../../ERPSolutionSupplyChainManagement/ERPSolSCMLib/ERPSolTemplateView.jar" jar-entry=""/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="ADF Library"/>
-               <value n="id" v="ADF Library"/>
             </hash>
          </list>
       </hash>
@@ -403,14 +403,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="ERPSolGlobalViewLib.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ERPSolTemplateView.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="ADF Faces Databinding Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -460,6 +452,14 @@
          </hash>
          <hash>
             <value n="id" v="BC4J Oracle Domains"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ERPSolGlobalViewLib.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ERPSolTemplateView.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

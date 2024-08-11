@@ -1,16 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
    <AppModuleConfigBag ApplicationName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule">
-      <AppModuleConfig name="ERPSolWOMAppModuleLocal" jbo.project="erpsolwom.erpsolwommodel.ERPSolWOMModel" ApplicationName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule" DeployPlatform="LOCAL">
-         <Database jbo.TypeMapEntries="OracleApps"/>
+      <AppModuleConfig name="ERPSolWOMAppModuleLocal" jbo.project="erpsolwom.erpsolwommodel.ERPSolWOMModel" ApplicationName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule" DeployPlatform="LOCAL" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <Database jbo.locking.mode="optimistic" jbo.TypeMapEntries="OracleApps"/>
          <Security AppModuleJndiName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule"/>
-         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/ERPSolWOMConnDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+         <Custom ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="java:comp/env/jdbc/ERPMobWOMConnDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
       </AppModuleConfig>
-      <AppModuleConfig name="ERPSolWOMAppModuleShared" jbo.project="erpsolwom.erpsolwommodel.ERPSolWOMModel" ApplicationName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule" DeployPlatform="LOCAL">
-         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
-         <Database jbo.TypeMapEntries="OracleApps"/>
+      <AppModuleConfig name="ERPSolWOMAppModuleShared" jbo.project="erpsolwom.erpsolwommodel.ERPSolWOMModel" ApplicationName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule" DeployPlatform="LOCAL" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <AM-Pooling jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1"/>
+         <Database jbo.locking.mode="optimistic" jbo.TypeMapEntries="OracleApps"/>
          <Security AppModuleJndiName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule"/>
-         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/ERPSolWOMConnDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+         <Custom ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="java:comp/env/jdbc/ERPMobWOMConnDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
       </AppModuleConfig>
    </AppModuleConfigBag>
 </BC4JConfig>
