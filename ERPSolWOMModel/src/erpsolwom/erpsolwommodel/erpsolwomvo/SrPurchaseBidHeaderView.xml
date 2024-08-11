@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SrPurchaseBidHeaderView"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidHeaderViewRowImpl"
+  ComponentClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidHeaderViewImpl"
+  ComponentInterface="erpsolwom.erpsolwommodel.erpsolwomvo.common.SrPurchaseBidHeaderView"
+  ClientProxyName="erpsolwom.erpsolwommodel.erpsolwomvo.client.SrPurchaseBidHeaderViewClient">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="AccAllLocationsVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllLocationsVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccPuSuppliersVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.PuSuppliersVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="PuSuppliersVOByLocationVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.PuSuppliersVO.PuSuppliersVOByLocationVC"/>
+    <ViewCriteriaUsage
+      Name="PuSuppliersVOForBidVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.PuSuppliersVO.PuSuppliersVOForBidVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"-1":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSrPurchaseRfqHeaderView"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqHeaderView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SrPurchaseRfqHeaderAvailableForBidVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqHeaderView.SrPurchaseRfqHeaderAvailableForBidVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_SUPPLIERID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Supplierid==null?-1:Supplierid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSrPurchaseRfqSupplierView"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqSupplierView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SrPurchaseRfqSupplierByRfqSupplierVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqSupplierView.SrPurchaseRfqSupplierByRfqSupplierVC"/>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSrPurchaseRfqLinesView"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqLinesView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SrPurchaseRfqLinesByRfqHeaderCodeVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqLinesView.SrPurchaseRfqLinesByRfqHeaderCodeVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_RFQ_HEADER_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[RfqHeaderCode==null?"-1":RfqHeaderCode]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LovtxtLocationName"
+    ListVOName="AccAllLocationsVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLocationName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LocationDescription"/>
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="LocationDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_RfqHeaderCode"
+    ListVOName="AccSrPurchaseRfqHeaderView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RfqHeaderCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="DemandCode"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="RfqHeaderCode"/>
+      <Item Value="DemandCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="RfqHeaderCode"/>
+      <Item Value="DemandCode"/>
+      <Item Value="RfqDate"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtSupplierName"
+    ListVOName="AccPuSuppliersVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtSupplierName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SuppName"/>
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SuppName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="PuSuppliersVOByLocationVC"/>
+  </ListBinding>
+  <EntityUsage
+    Name="SrPurchaseBidHeader"
+    Entity="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidHeader"/>
+  <ViewAttribute
+    Name="Bidheaderseq"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Bidheaderseq"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="BIDHEADERSEQ"/>
+  <ViewAttribute
+    Name="BidCode"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BidCode"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="BID_CODE"/>
+  <ViewAttribute
+    Name="BidDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BidDate"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="BID_DATE"/>
+  <ViewAttribute
+    Name="DemandCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DemandCode"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="DEMAND_CODE"/>
+  <ViewAttribute
+    Name="SupplierQuoteNo"
+    PrecisionRule="true"
+    EntityAttrName="SupplierQuoteNo"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="SUPPLIER_QUOTE_NO"/>
+  <ViewAttribute
+    Name="RfqHeaderCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RfqHeaderCode"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="RFQ_HEADER_CODE"
+    LOVName="LOV_RfqHeaderCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Supplierid"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Supplierid"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="SUPPLIERID"/>
+  <ViewAttribute
+    Name="Remarks"
+    PrecisionRule="true"
+    EntityAttrName="Remarks"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="REMARKS"/>
+  <ViewAttribute
+    Name="Locationid"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Locationid"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="LOCATIONID"/>
+  <ViewAttribute
+    Name="ResponseDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ResponseDate"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="RESPONSE_DATE"/>
+  <ViewAttribute
+    Name="Posted"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Posted"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="POSTED"/>
+  <ViewAttribute
+    Name="EffectiveFrom"
+    PrecisionRule="true"
+    EntityAttrName="EffectiveFrom"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="EFFECTIVE_FROM"/>
+  <ViewAttribute
+    Name="EffectiveTo"
+    PrecisionRule="true"
+    EntityAttrName="EffectiveTo"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="EFFECTIVE_TO"/>
+  <ViewAttribute
+    Name="Companyid"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Companyid"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="COMPANYID"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreatedDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedDate"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="CREATED_DATE"/>
+  <ViewAttribute
+    Name="ModifiedBy"
+    PrecisionRule="true"
+    EntityAttrName="ModifiedBy"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="MODIFIED_BY"/>
+  <ViewAttribute
+    Name="Modifieddate"
+    PrecisionRule="true"
+    EntityAttrName="Modifieddate"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="MODIFIEDDATE"/>
+  <ViewAttribute
+    Name="txtLocationName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtLocationName"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="TXT_LOCATION_NAME"
+    LOVName="LovtxtLocationName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Rfqsupplierseqno"
+    PrecisionRule="true"
+    EntityAttrName="Rfqsupplierseqno"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="RFQSUPPLIERSEQNO"/>
+  <ViewAttribute
+    Name="txtSupplierName"
+    PrecisionRule="true"
+    EntityAttrName="txtSupplierName"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="TXT_SUPPLIER_NAME"
+    LOVName="LovtxtSupplierName"
+    IsQueriable="false"
+    IsPersistent="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="SrPurchaseBidLinesView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.PkSrPurBidLinRfqHeadLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AllLocationsVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.AllLocationSrPurchaseBidHeaderLocationIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseRfqSupplierView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurRfqSupplierSrPurBidHeadRfqSupplierseqnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="PuSuppliersVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.PuSupplierSrPurchaseBidHeaderSupplierIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseRfqHeaderView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurRfqHeaderSrPurBidHeaderRfqHeaderCodeLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doSuperviseSrPurchaseBID"
+      MethodName="doSuperviseSrPurchaseBID">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
+</ViewObject>

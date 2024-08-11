@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SrPoInvoicePayAdvanceView"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoInvoicePayAdvanceViewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="AccSrPurchaseAdvanceVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseAdvanceVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovAdvanceCode"
+    ListVOName="AccSrPurchaseAdvanceVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="AdvanceCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="AdvanceCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AdvanceCode"/>
+      <Item Value="BalanceAmount"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="SrPoInvoicePayAdvance"
+    Entity="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoInvoicePayAdvance"/>
+  <ViewAttribute
+    Name="Payadvanceseq"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Payadvanceseq"
+    EntityUsage="SrPoInvoicePayAdvance"
+    AliasName="PAYADVANCESEQ"/>
+  <ViewAttribute
+    Name="Invoicepayseq"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Invoicepayseq"
+    EntityUsage="SrPoInvoicePayAdvance"
+    AliasName="INVOICEPAYSEQ"/>
+  <ViewAttribute
+    Name="AdvanceCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AdvanceCode"
+    EntityUsage="SrPoInvoicePayAdvance"
+    AliasName="ADVANCE_CODE"
+    LOVName="LovAdvanceCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AdvanceAmount"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AdvanceAmount"
+    EntityUsage="SrPoInvoicePayAdvance"
+    AliasName="ADVANCE_AMOUNT"/>
+  <ViewAttribute
+    Name="Remarks"
+    PrecisionRule="true"
+    EntityAttrName="Remarks"
+    EntityUsage="SrPoInvoicePayAdvance"
+    AliasName="REMARKS"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="SrPoInvoicePayAdvance"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreatedDate"
+    PrecisionRule="true"
+    EntityAttrName="CreatedDate"
+    EntityUsage="SrPoInvoicePayAdvance"
+    AliasName="CREATED_DATE"/>
+  <ViewAttribute
+    Name="ModifiedBy"
+    PrecisionRule="true"
+    EntityAttrName="ModifiedBy"
+    EntityUsage="SrPoInvoicePayAdvance"
+    AliasName="MODIFIED_BY"/>
+  <ViewAttribute
+    Name="ModifiedDate"
+    PrecisionRule="true"
+    EntityAttrName="ModifiedDate"
+    EntityUsage="SrPoInvoicePayAdvance"
+    AliasName="MODIFIED_DATE"/>
+  <ViewLinkAccessor
+    Name="SrPoInvoicePayHeaderView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkSrPoInvAdvInvPaySeqLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+</ViewObject>

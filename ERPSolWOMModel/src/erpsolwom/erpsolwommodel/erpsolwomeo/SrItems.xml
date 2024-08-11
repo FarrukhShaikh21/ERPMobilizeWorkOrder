@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SrItems"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SR_ITEMS"
+  AliasName="SrItems"
+  BindingStyle="OracleName"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomeo.SrItemsImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="ItemId"
+    Precision="10"
+    Scale="0"
+    ColumnName="ITEM_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SR_ITEMS"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="ItemName"
+    Precision="100"
+    ColumnName="ITEM_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ItemCode"
+    Precision="15"
+    ColumnName="ITEM_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="SR_ITEMS"/>
+  <Attribute
+    Name="CreatedBy"
+    Precision="25"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ItemFor"
+    Precision="1"
+    ColumnName="ITEM_FOR"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_ITEMS"
+    DefaultValue="S">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModifiedBy"
+    Precision="25"
+    ColumnName="MODIFIED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModifiedDate"
+    ColumnName="MODIFIED_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="SR_ITEMS"/>
+  <Attribute
+    Name="Brandid"
+    Precision="15"
+    ColumnName="BRANDID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CategoryId"
+    Precision="5"
+    Scale="0"
+    ColumnName="CATEGORY_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SR_ITEMS"/>
+  <Attribute
+    Name="CostCenter"
+    Precision="20"
+    ColumnName="COST_CENTER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GlCode"
+    Precision="20"
+    ColumnName="GL_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="SrPurchaseDemandLines"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemsSrPurchaseDemandLinesItemIdAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemsSrPurchaseDemandLinesItemIdAssoc.SrPurchaseDemandLines"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemsSrPurchaseDemandLinesItemIdAssoc.SrItems"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SrPurchaseRfqLines"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPurchaseRfqLinesItemIdAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPurchaseRfqLinesItemIdAssoc.SrPurchaseRfqLines"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPurchaseRfqLinesItemIdAssoc.SrItems"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SrPurchaseBidLines"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemsSrPurchaseBidLinesItemIdAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemsSrPurchaseBidLinesItemIdAssoc.SrPurchaseBidLines"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemsSrPurchaseBidLinesItemIdAssoc.SrItems"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SrPurchaseBidCompareLines"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPurchaseBidCompLinesItemIdAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPurchaseBidCompLinesItemIdAssoc.SrPurchaseBidCompareLines"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPurchaseBidCompLinesItemIdAssoc.SrItems"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SrPurchaseOrderLines"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPurchaseOrderLinesItemIdAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPurchaseOrderLinesItemIdAssoc.SrPurchaseOrderLines"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPurchaseOrderLinesItemIdAssoc.SrItems"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SrPoReceivingLines"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPoReceivingLinesItemIdAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPoReceivingLinesItemIdAssoc.SrPoReceivingLines"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPoReceivingLinesItemIdAssoc.SrItems"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="SritemsPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SRITEMS_PRIMARY_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrItems.ItemId"/>
+    </AttrArray>
+  </Key>
+</Entity>
