@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ERPSOLWOM">
+    <default-activity>doERPSolWOMSessionGlobals</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__7">
+      <name>P_ADF_USERCODE</name>
+      <value>#{pageFlowScope.ERPSolWOMPageFlowBean.ERPSolStrUserCode}</value>
+      <class>erpsolwom.erpsolwomview.erpsolwomclass.ERPSolWOMBean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__8">
+      <name>P_ADF_USER_LOCATIONCODE</name>
+      <value>#{pageFlowScope.ERPSolWOMPageFlowBean.ERPSolStrUserLocationCode}</value>
+      <class>erpsolwom.erpsolwomview.erpsolwomclass.ERPSolWOMBean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__10">
+      <name>P_ADF_USER_STORECODE</name>
+      <value>#{pageFlowScope.ERPSolWOMPageFlowBean.ERPSolStrUserStoreCode}</value>
+      <class>erpsolwom.erpsolwomview.erpsolwomclass.ERPSolWOMBean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__11">
+      <name>P_ADF_USER_REGIONCODE</name>
+      <value>#{pageFlowScope.ERPSolWOMPageFlowBean.ERPSolStrUserRegionCode}</value>
+      <class>erpsolwom.erpsolwomview.erpsolwomclass.ERPSolWOMBean</class>
+    </input-parameter-definition>
+    <managed-bean id="__9">
+      <managed-bean-name>ERPSolWOMPageFlowBean</managed-bean-name>
+      <managed-bean-class>erpsolwom.erpsolwomview.erpsolwomclass.ERPSolWOMBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__24">
+      <managed-bean-name>ERPSolTempBean</managed-bean-name>
+      <managed-bean-class>erpsoltemp.erpsoltempview.erptempclass.ERPSolutionTemplateBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <method-call id="Rollback">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-LOGOUT</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-return id="ACT-ERP-SOL-LOGOUT">
+      <outcome>
+        <name>ACT-ERP-SOL-LOGOUT</name>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="ERPSOL-RETURN-FROM-WOM">
+      <outcome>
+        <name>ERPSOL-RETURN-FROM-WOM</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="doERPSolWOMSessionGlobals">
+      <method>#{pageFlowScope.ERPSolWOMPageFlowBean.doSetERPSolWOMSessionGlobals}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-GOTO-WOM-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="ERPSolWOMMain">
+      <page>/ERPSolWOMMain.jsf</page>
+    </view>
+    <method-call id="ExecuteWithParamsSetup">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParamsTransaction</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParamsTransaction">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParamsTransaction</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParamsReverse">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-GOTO-WOM-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParamsReports">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-GOTO-WOM-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-GOTO-WOM-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SR_0001">
+      <page>/SR_0001.jsf</page>
+    </view>
+    <method-call id="Rollback1">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>Rollback</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="doERPGotoWOMActivity">
+      <method>#{pageFlowScope.ERPSolTempBean.doGotoERPSolActivity}</method>
+      <outcome>
+        <to-string/>
+      </outcome>
+    </method-call>
+    <view id="SR_0002">
+      <page>/SR_0002.jsf</page>
+    </view>
+    <method-call id="Rollback2">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-CLOSE-FORM-WOM</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SR_0003">
+      <page>/SR_0003.jsf</page>
+    </view>
+    <view id="SR_0004">
+      <page>/SR_0004.jsf</page>
+    </view>
+    <view id="SR_0005">
+      <page>/SR_0005.jsf</page>
+    </view>
+    <view id="SR_0006">
+      <page>/SR_0006.jsf</page>
+    </view>
+    <view id="SR_0007">
+      <page>/SR_0007.jsf</page>
+    </view>
+    <view id="SR_0008">
+      <page>/SR_0008.jsf</page>
+    </view>
+    <view id="SR_0009">
+      <page>/SR_0009.jsf</page>
+    </view>
+    <view id="SR_0010">
+      <page>/SR_0010.jsf</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>ACT-ERP-SOL-LOGOUT</from-outcome>
+        <to-activity-id>Rollback</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>Rollback</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>ACT-ERP-SOL-LOGOUT</from-outcome>
+        <to-activity-id>ACT-ERP-SOL-LOGOUT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>ACT-ERPSOL-RETURN-FROM-WOM</from-outcome>
+        <to-activity-id>ERPSOL-RETURN-FROM-WOM</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id>doERPSolWOMSessionGlobals</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome>ACT-ERP-SOL-GOTO-WOM-MAIN</from-outcome>
+        <to-activity-id>ExecuteWithParamsSetup</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>ExecuteWithParamsSetup</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>ExecuteWithParamsTransaction</from-outcome>
+        <to-activity-id>ExecuteWithParamsTransaction</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__16">
+      <from-activity-id>ExecuteWithParamsTransaction</from-activity-id>
+      <control-flow-case id="__17">
+        <from-outcome>ExecuteWithParamsTransaction</from-outcome>
+        <to-activity-id>ExecuteWithParamsReverse</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__18">
+      <from-activity-id>ExecuteWithParamsReverse</from-activity-id>
+      <control-flow-case id="__19">
+        <from-outcome>ACT-ERP-SOL-GOTO-WOM-MAIN</from-outcome>
+        <to-activity-id>ExecuteWithParamsReports</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__20">
+      <from-activity-id>ExecuteWithParamsReports</from-activity-id>
+      <control-flow-case id="__21">
+        <from-outcome>ACT-ERP-SOL-GOTO-WOM-MAIN</from-outcome>
+        <to-activity-id>ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__22">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__23">
+        <from-outcome>ACT-ERP-SOL-GOTO-WOM-MAIN</from-outcome>
+        <to-activity-id>ERPSolWOMMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__29">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__30">
+        <from-outcome>ACTStartERPSolutionTaskFlow</from-outcome>
+        <to-activity-id>Rollback1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__31">
+      <from-activity-id>doERPGotoWOMActivity</from-activity-id>
+      <control-flow-case id="__32">
+        <from-outcome>ERP-ACT-SR-0001</from-outcome>
+        <to-activity-id>SR_0001</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__25">
+        <from-outcome>ERP-ACT-SR-0002</from-outcome>
+        <to-activity-id>SR_0002</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__36">
+        <from-outcome>ERP-ACT-SR-0003</from-outcome>
+        <to-activity-id>SR_0003</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__37">
+        <from-outcome>ERP-ACT-SR-0004</from-outcome>
+        <to-activity-id>SR_0004</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__38">
+        <from-outcome>ERP-ACT-SR-0005</from-outcome>
+        <to-activity-id>SR_0005</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__39">
+        <from-outcome>ERP-ACT-SR-0007</from-outcome>
+        <to-activity-id>SR_0007</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__40">
+        <from-outcome>ERP-ACT-SR-0006</from-outcome>
+        <to-activity-id>SR_0006</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__43">
+        <from-outcome>ERP-ACT-SR-0008</from-outcome>
+        <to-activity-id>SR_0008</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__44">
+        <from-outcome>ERP-ACT-SR-0009</from-outcome>
+        <to-activity-id>SR_0009</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__47">
+        <from-outcome>ERP-ACT-SR-0010</from-outcome>
+        <to-activity-id>SR_0010</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__33">
+      <from-activity-id>Rollback1</from-activity-id>
+      <control-flow-case id="__34">
+        <from-outcome>Rollback</from-outcome>
+        <to-activity-id>doERPGotoWOMActivity</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__26">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__27">
+        <from-outcome>ACT-ERP-CLOSE-FORM-WOM</from-outcome>
+        <to-activity-id>Rollback2</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__28">
+      <from-activity-id>Rollback2</from-activity-id>
+      <control-flow-case id="__35">
+        <from-outcome>ACT-ERP-CLOSE-FORM-WOM</from-outcome>
+        <to-activity-id>ERPSolWOMMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <visibility>
+      <url-invoke-allowed/>
+    </visibility>
+  </task-flow-definition>
+</adfc-config>

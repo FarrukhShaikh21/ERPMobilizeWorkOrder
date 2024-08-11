@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SR_0006PageDef"
+                Package="erpsolwom.erpsolwomview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SrPoReceivingHeaderCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
+              id="SrPoReceivingHeaderCRUDIterator"/>
+    <iterator Binds="SrPoReceivingLinesDetCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
+              id="SrPoReceivingLinesDetCRUDIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SrPoReceivingHeaderCRUDIterator" id="Poreceiveseq">
+      <AttrNames>
+        <Item Value="Poreceiveseq"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPoReceivingHeaderCRUDIterator" id="ReceiveDate">
+      <AttrNames>
+        <Item Value="ReceiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPoReceivingHeaderCRUDIterator" id="ReceiveCode">
+      <AttrNames>
+        <Item Value="ReceiveCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPoReceivingHeaderCRUDIterator" id="Companyid">
+      <AttrNames>
+        <Item Value="Companyid"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SrPoReceivingHeaderCRUDIterator" StaticList="false" Uses="LovtxtLocationName"
+                  id="txtLocationName"/>
+    <list IterBinding="SrPoReceivingHeaderCRUDIterator" StaticList="false" Uses="LOV_Recvdoctypeid" id="Recvdoctypeid"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <listOfValues IterBinding="SrPoReceivingHeaderCRUDIterator" StaticList="false" Uses="LovReceiveDocumentNo"
+                  id="ReceiveDocumentNo"/>
+    <listOfValues IterBinding="SrPoReceivingHeaderCRUDIterator" StaticList="false" Uses="LovtxtStoreName"
+                  id="txtStoreName"/>
+    <attributeValues IterBinding="SrPoReceivingHeaderCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPoReceivingHeaderCRUDIterator" id="Storeid">
+      <AttrNames>
+        <Item Value="Storeid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPoReceivingHeaderCRUDIterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="SrPoReceivingHeaderCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="SrPoReceivingHeaderCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="SrPoReceivingHeaderCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="SrPoReceivingHeaderCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolWOMAppModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolWOMAppModuleDataControl"/>
+    <action IterBinding="SrPoReceivingLinesDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SrPoReceivingLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <methodAction id="doSuperviseSrPOReceiving" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseSrPOReceiving" IsViewObjectMethod="true"
+                  DataControl="ERPSolWOMAppModuleDataControl"
+                  InstanceName="data.ERPSolWOMAppModuleDataControl.SrPoReceivingHeaderCRUD"
+                  ReturnName="data.ERPSolWOMAppModuleDataControl.methodResults.doSuperviseSrPOReceiving_ERPSolWOMAppModuleDataControl_SrPoReceivingHeaderCRUD_doSuperviseSrPOReceiving_result"/>
+    <tree IterBinding="SrPoReceivingLinesDetCRUDIterator" id="SrPoReceivingLinesDetCRUD">
+      <nodeDefinition DefName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoReceivingLinesVO"
+                      Name="SrPoReceivingLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="txtItemName"/>
+          <Item Value="PoRate"/>
+          <Item Value="Quantity"/>
+          <Item Value="txtGrossAmount"/>
+          <Item Value="TaxRate"/>
+          <Item Value="txtTaxAmount"/>
+          <Item Value="txtNetAmount"/>
+          <Item Value="DepartmentId"/>
+          <Item Value="ProjectId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="SrPoReceivingHeaderCRUDIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

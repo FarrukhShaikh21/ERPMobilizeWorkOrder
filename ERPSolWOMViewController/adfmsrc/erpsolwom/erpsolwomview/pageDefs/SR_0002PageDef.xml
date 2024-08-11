@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SR_0002PageDef"
+                Package="erpsolwom.erpsolwomview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SrPurchaseRfqHeaderCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
+              id="SrPurchaseRfqHeaderCRUDIterator"/>
+    <iterator Binds="SrPurchaseRfqLinesDetCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
+              id="SrPurchaseRfqLinesDetCRUDIterator"/>
+    <iterator Binds="SrPurchaseRfqSupplierDetCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
+              id="SrPurchaseRfqSupplierDetCRUDIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="RfqHeaderCode">
+      <AttrNames>
+        <Item Value="RfqHeaderCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="RfqDate">
+      <AttrNames>
+        <Item Value="RfqDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="SrPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovRfqFor" id="RfqFor"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <listOfValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LOV_txtLocationName"
+                  id="txtLocationName"/>
+    <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="NoteToSupplier">
+      <AttrNames>
+        <Item Value="NoteToSupplier"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="ValidFromDate">
+      <AttrNames>
+        <Item Value="ValidFromDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="ValidToDate">
+      <AttrNames>
+        <Item Value="ValidToDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="BillTo">
+      <AttrNames>
+        <Item Value="BillTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="ShipTo">
+      <AttrNames>
+        <Item Value="ShipTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="DueDate">
+      <AttrNames>
+        <Item Value="DueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolWOMAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolWOMAppModuleDataControl"/>
+    <action IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <methodAction id="doSuperviseSrPurchaseRFQ" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseSrPurchaseRFQ" IsViewObjectMethod="true"
+                  DataControl="ERPSolWOMAppModuleDataControl"
+                  InstanceName="data.ERPSolWOMAppModuleDataControl.SrPurchaseRfqHeaderCRUD"
+                  ReturnName="data.ERPSolWOMAppModuleDataControl.methodResults.doSuperviseSrPurchaseRFQ_ERPSolWOMAppModuleDataControl_SrPurchaseRfqHeaderCRUD_doSuperviseSrPurchaseRFQ_result"/>
+    <listOfValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovDemandCode"
+                  id="DemandCode"/>
+    <action IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SrPurchaseRfqLinesDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SrPurchaseRfqLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <tree IterBinding="SrPurchaseRfqLinesDetCRUDIterator" id="SrPurchaseRfqLinesDetCRUD">
+      <nodeDefinition DefName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqLinesView"
+                      Name="SrPurchaseRfqLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="txtItemName"/>
+          <Item Value="RequiredBy"/>
+          <Item Value="Quantity"/>
+          <Item Value="AproxPrice"/>
+          <Item Value="ProjectId"/>
+          <Item Value="DepartmentId"/>
+          <Item Value="SupplierItemName"/>
+          <Item Value="NoteToBuyer"/>
+          <Item Value="NoteToSupplier"/>
+          <Item Value="Remarks"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="SrPurchaseRfqSupplierDetCRUDIterator" id="SrPurchaseRfqSupplierDetCRUD">
+      <nodeDefinition DefName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqSupplierView"
+                      Name="SrPurchaseRfqSupplierDetCRUD0">
+        <AttrNames>
+          <Item Value="Supplierid"/>
+          <Item Value="ContactNo"/>
+          <Item Value="SupplierRemarks"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SrPurchaseRfqSupplierDetCRUDIterator" id="CreateInsert2" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SrPurchaseRfqSupplierDetCRUDIterator" id="Delete2" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="Rfqheaderseqno">
+      <AttrNames>
+        <Item Value="Rfqheaderseqno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="Companyid">
+      <AttrNames>
+        <Item Value="Companyid"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

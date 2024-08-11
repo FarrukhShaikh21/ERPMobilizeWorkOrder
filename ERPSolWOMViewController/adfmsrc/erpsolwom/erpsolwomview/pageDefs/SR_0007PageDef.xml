@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SR_0007PageDef"
+                Package="erpsolwom.erpsolwomview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SrPurchaseAdvanceCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
+              id="SrPurchaseAdvanceCRUDIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SrPurchaseAdvanceCRUDIterator" id="AdvanceCode">
+      <AttrNames>
+        <Item Value="AdvanceCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseAdvanceCRUDIterator" id="Advanceseqno">
+      <AttrNames>
+        <Item Value="Advanceseqno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseAdvanceCRUDIterator" id="Companyid">
+      <AttrNames>
+        <Item Value="Companyid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseAdvanceCRUDIterator" id="AdvanceDate">
+      <AttrNames>
+        <Item Value="AdvanceDate"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SrPurchaseAdvanceCRUDIterator" StaticList="false" Uses="LovtxtLocationName"
+                  id="txtLocationName"/>
+    <attributeValues IterBinding="SrPurchaseAdvanceCRUDIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SrPurchaseAdvanceCRUDIterator" StaticList="false" Uses="LovtxtSupplierName"
+                  id="txtSupplierName"/>
+    <attributeValues IterBinding="SrPurchaseAdvanceCRUDIterator" id="AdvanceType">
+      <AttrNames>
+        <Item Value="AdvanceType"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SrPurchaseAdvanceCRUDIterator" StaticList="false" Uses="LovPoCode" id="PoCode"/>
+    <attributeValues IterBinding="SrPurchaseAdvanceCRUDIterator" id="AdvanceAmount">
+      <AttrNames>
+        <Item Value="AdvanceAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseAdvanceCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="doSuperviseSrPOAdvance" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseSrPOAdvance" IsViewObjectMethod="true"
+                  DataControl="ERPSolWOMAppModuleDataControl"
+                  InstanceName="data.ERPSolWOMAppModuleDataControl.SrPurchaseAdvanceCRUD"
+                  ReturnName="data.ERPSolWOMAppModuleDataControl.methodResults.doSuperviseSrPOAdvance_ERPSolWOMAppModuleDataControl_SrPurchaseAdvanceCRUD_doSuperviseSrPOAdvance_result"/>
+    <attributeValues IterBinding="SrPurchaseAdvanceCRUDIterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolWOMAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolWOMAppModuleDataControl"/>
+    <action IterBinding="SrPurchaseAdvanceCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SrPurchaseAdvanceCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="SrPurchaseAdvanceCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="SrPurchaseAdvanceCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+  </bindings>
+</pageDefinition>
